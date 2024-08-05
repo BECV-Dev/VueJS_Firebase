@@ -1,6 +1,16 @@
 const admin = require('../src/config/firebase');
 const db = admin.firestore();
 
+exports.TestConnection = async (req, res) => {
+  try {
+    const collections = await db.listCollections();
+    res.status(200).send(collections.map(col => col.id));
+  } catch (error) {
+    console.error("Error accediendo a Firestore:", error);
+    res.status(500).send({ error: 'Error accediendo a Firestore', details: error.message });
+  }
+};
+
 // Crear Tarea
 exports.createTarea = async (req, res) => {
   try {

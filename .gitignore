@@ -1,0 +1,4 @@
+# Ignorar archivos de configuración de Firebase
+backend/src/config/firebase.js
+backend/src/config/serviceAccountKey.json
+frontend/src/firebase.js
